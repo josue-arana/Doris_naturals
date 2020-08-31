@@ -49,7 +49,7 @@
     <!-- navbar  -->
     <nav 
     
-    class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"
+    class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" id="navbar-menu"
         style="height: 95px; background-color: #9370db; border-color: #cc99ff" >
 
         <!-- Brand -->
@@ -57,7 +57,7 @@
             <img src="./images/logo1.png"   width="200px" height="200px" alt="logo" />
         </a>
         
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <button class="navbar-toggler" id="menu-button" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -73,10 +73,9 @@
                     <a class="nav-link" href="#">About US</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Testimonials</a>
+                    <a class="nav-link" href="#">Contact US</a>
                 </li>
             </ul>
-
         </div>
 
         <div class="cart-btn" id="cart-button" style="position: absolute; float:right; margin-left:80%">
@@ -159,5 +158,9 @@
             scrollTop: div.scrollHeight - div.clientHeight
         }, 500);
     }
+    $('#menu-button').click(function(){
+        $('#navbar-menu').removeClass("navbar-dark");
+        $('#navbar-menu').addClass("navbar-light");
+    })
    
 </script>
