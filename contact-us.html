@@ -100,110 +100,114 @@
     </nav>
 
     <!--Main layout-->
-    <!-- <main class="mt-5 pt-4" style="background-color: white"> -->
-
     <!--Section: contact-->
-    <section id="contact" class="mt-5 pt-4" style="background-color: white">
-      <div class="container wow fadeIn">
-        <!-- Heading -->
+    <section id="contact" class="py-5" style="background-color: white">
+      <div class="container">
+        <!-- Section heading -->
+        <!-- <h2 class="h1-responsive font-weight-bold text-center mb-5">
+          Contact Form
+        </h2> -->
         <div class="my-5 h2 text-center section-title" id="section-title">
-          <h2 class="h1-responsive font-weight-bold text-center mb-5">
-            Contact Form
-          </h2>
+          <h2 class="h1-responsive text-center mb-5">Contact Form</h2>
         </div>
+        <!-- Section description -->
+        <p class="text-center w-responsive mx-auto mb-5"></p>
 
-        <!--Grid row-->
+        <!-- Grid row -->
         <div class="row">
-          <!--Grid column-->
-          <div class="col-md-8 mb-4" style="margin: auto">
-            <!--Card-->
-            <div class="">
-              <!--Card content-->
-              <form
-                name="contact"
-                method="POST"
+          <!-- Grid column -->
+          <div class="col-md-9 mb-md-0 mb-5" style="margin: auto">
+            <form
+              name="contact"
+              method="POST"
+              data-netlify-recaptcha="true"
+              data-netlify="true"
+            >
+              <!-- Grid row -->
+              <div class="row">
+                <!-- Grid column -->
+                <div class="col-md-6">
+                  <div class="md-form mb-0">
+                    <input
+                      type="text"
+                      name="name"
+                      id="contact-name"
+                      class="form-control"
+                    />
+                    <label for="contact-name" class="">Name:</label>
+                  </div>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-6">
+                  <div class="md-form mb-0">
+                    <input
+                      type="text"
+                      name="email"
+                      id="contact-email"
+                      class="form-control"
+                    />
+                    <label for="contact-email" class="">Email:</label>
+                  </div>
+                </div>
+                <!-- Grid column -->
+              </div>
+              <!-- Grid row -->
+
+              <!-- Grid row -->
+              <div class="row">
+                <!-- Grid column -->
+                <div class="col-md-12">
+                  <div class="md-form mb-0">
+                    <input
+                      type="text"
+                      name="subject"
+                      id="contact-Subject"
+                      class="form-control"
+                    />
+                    <label for="contact-Subject" class="">Subject:</label>
+                  </div>
+                </div>
+                <!-- Grid column -->
+              </div>
+              <!-- Grid row -->
+
+              <!-- Grid row -->
+              <div class="row">
+                <!-- Grid column -->
+                <div class="col-md-12">
+                  <div class="md-form">
+                    <textarea
+                      type="text"
+                      name="message"
+                      id="contact-message"
+                      class="form-control md-textarea"
+                      rows="3"
+                    ></textarea>
+                    <label for="contact-message">Your message</label>
+                  </div>
+                </div>
+                <!-- Grid column -->
+              </div>
+              <!-- Grid row -->
+
+              <!-- Captcha -->
+              <div
+                class="text-center text-md-left"
                 data-netlify-recaptcha="true"
-                data-netlify="true"
-              >
-                <!-- Grid row -->
-                <div class="row">
-                  <!-- Grid column -->
-                  <div class="col-md-6">
-                    <div class="md-form mb-0">
-                      <input
-                        type="text"
-                        name="name"
-                        id="contact-name"
-                        class="form-control"
-                      />
-                      <label for="contact-name" class="">Name:</label>
-                    </div>
-                  </div>
-                  <!-- Grid column -->
+              ></div>
 
-                  <!-- Grid column -->
-                  <div class="col-md-6">
-                    <div class="md-form mb-0">
-                      <input
-                        type="text"
-                        name="email"
-                        id="contact-email"
-                        class="form-control"
-                      />
-                      <label for="contact-email" class="">Email:</label>
-                    </div>
-                  </div>
-                  <!-- Grid column -->
-                </div>
-                <!-- Grid row -->
-
-                <!-- Grid row -->
-                <div class="row">
-                  <!-- Grid column -->
-                  <div class="col-md-12">
-                    <div class="md-form mb-0">
-                      <input
-                        type="text"
-                        name="subject"
-                        id="contact-Subject"
-                        class="form-control"
-                      />
-                      <label for="contact-Subject" class="">Subject</label>
-                    </div>
-                  </div>
-                  <!-- Grid column -->
-                </div>
-                <!-- Grid row -->
-
-                <!-- Grid row -->
-                <div class="row">
-                  <!-- Grid column -->
-                  <div class="col-md-12">
-                    <div class="md-form">
-                      <textarea
-                        type="text"
-                        name="message"
-                        id="contact-message"
-                        class="form-control md-textarea"
-                        rows="3"
-                      ></textarea>
-                      <label for="contact-message">Your message</label>
-                    </div>
-                  </div>
-                  <!-- Grid column -->
-                </div>
-                <!-- Grid row -->
-
-                <button class="btn btn-primary btn-lg" type="submit">
-                  Send
-                </button>
-              </form>
-            </div>
-            <!--/.Card-->
+              <div class="text-center text-md-left">
+                <p>
+                  <button type="submit" class="banner-btn">Send Message</button>
+                </p>
+              </div>
+            </form>
           </div>
-          <!--Grid column-->
+          <!-- Grid column -->
         </div>
-        <!--Grid row-->
+        <!-- Grid row -->
       </div>
     </section>
     <!--Main layout-->
