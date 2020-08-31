@@ -24,6 +24,7 @@ const productsDOM = document.querySelector(".products-center");
 let cart = [];
 // buttons
 let buttonsDOM = [];
+let total = 0;
 
 // getting the products
 class Products {
@@ -133,6 +134,7 @@ class UI {
     //update values
     cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
     cartItems.innerText = itemsTotal;
+    total = tempTotal;
     // console.log(cartTotal, cartItems);
     // console.log("set cart values");
   }
@@ -170,7 +172,6 @@ class UI {
     //event listeners
     cartBtn.addEventListener("click", this.showCart);
     closeCartBtn.addEventListener("click", this.hideCart);
-    // this.cartLogic();
   }
 
   populateCart(cart) {
@@ -184,17 +185,16 @@ class UI {
 
   cartLogic() {
     //clear cart button
-    console.log("about to clear the cart");
     clearCartBtn.addEventListener("click", () => {
       this.clearCart();
     });
     //cart functionality - event bubbler
     cartContent.addEventListener("click", (event) => {
-      //   console.log(event.target);
-
       if (event.target.classList.contains("remove-item")) {
         let removeItem = event.target;
         let id = removeItem.dataset.id;
+        // console.log("removing item", id);
+        cartContent.removeChild(removeItem.parentElement.parentElement);
         this.removeItem(id); //remove from cart
       } else if (event.target.classList.contains("fa-chevron-up")) {
         let addAmount = event.target;
@@ -223,11 +223,9 @@ class UI {
   }
 
   clearCart() {
-    console.log("in clear");
+    // console.log("in clear");
     var cartItems = cart.map((item) => item.id); //create array with all ids we have in the car
     cartItems.forEach((id) => this.removeItem(id)); //remove each of the items with given id
-
-    console.log(cartContent.children);
 
     while (cartContent.children.length > 0) {
       cartContent.removeChild(cartContent.children[0]);
@@ -246,8 +244,9 @@ class UI {
     let button = this.getSingleButton(id);
     button.disabled = false;
     button.innerHTML = `<i class="fas fa-shopping-cart"></i> add to cart`;
-    console.log("removed item");
+    // console.log("removed item");
   }
+
   getSingleButton(id) {
     return buttonsDOM.find((button) => button.dataset.id === id);
   }
@@ -292,4 +291,46 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(() => {
       ui.getBagButtons();
     });
+});
+
+// var checkout_url = "https://www.paypal.com/sdk/js?client-id=AYVUPu8o0f-Q3u4FdZ9SOjqRXJzcPZy4tm9dzI8AlqyIkX1my7HE_-AZdSkBLYQHmxlJYFj5RZD3w43E";
+/* // Replace YOUR_SB_CLIENT_ID with your sandbox client ID */
+
+/* Paypal Checkout */
+paypal
+  .Buttons({
+    createOrder: function (data, actions) {
+      return actions.order.create({
+        purchase_units: [
+          {
+            amount: {
+              value: total,
+            },
+          },
+        ],
+      });
+    },
+    onApprove: function (data, actions) {
+      return actions.order.capture().then(function (details) {
+        alert("Transaction completed by " + details.payer.name.given_name);
+      });
+    },
+  })
+  .render("#paypal-button-container");
+/* // Display payment options on your web page */
+
+$("#shop").click(function () {
+  //    alert("hello");
+  $("html,body").animate(
+    {
+      scrollTop: $("#products")[0].scrollHeight,
+    },
+    "slow"
+  );
+});
+
+$("#cart-button").click(function () {
+  console.log("hey there!");
+
+  console.log(total);
 });

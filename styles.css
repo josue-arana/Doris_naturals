@@ -17,9 +17,30 @@ body {
   color: var(--mainBlack);
   background: var(--mainWhite);
   font-family: "Lato", sans-serif;
+  padding-top: 50px;
+}
+
+nav {
+  height: 10vh;
+}
+
+.bg-img {
+  /* The image used */
+  background-image: url("img_nature.jpg");
+
+  min-height: 380px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Needed to position the navbar */
+  position: relative;
 }
 
 /* --------------- Navbar ---------------- */
+
 .navbar {
   position: sticky;
   top: 0;
@@ -30,6 +51,15 @@ body {
   background: rgb(231, 226, 221);
   z-index: 1;
 }
+
+.brand {
+  padding-top: 20px;
+  position: absolute;
+  left: 50%;
+  margin-left: -100px !important; /* 50% of your logo width */
+  display: block;
+}
+
 .navbar-center {
   width: 100%;
   max-width: 1170px;
@@ -194,6 +224,8 @@ body {
   padding: 1.5rem;
   transition: var(--mainTransition);
   transform: translateX(100%);
+
+  padding-top: 100px;
 }
 .showCart {
   transform: translateX(0);
