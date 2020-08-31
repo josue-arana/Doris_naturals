@@ -320,17 +320,10 @@ paypal
 /* // Display payment options on your web page */
 
 $("#shop").click(function () {
-  //    alert("hello");
   $("html,body").animate(
     {
-      scrollTop: $("#products")[0].scrollHeight,
+      scrollTop: $("#products")[0].scrollHeight - 100,
     },
     "slow"
   );
-});
-
-$("#cart-button").click(function () {
-  console.log("hey there!");
-
-  console.log(total);
 });

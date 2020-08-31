@@ -133,8 +133,16 @@ nav {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 5rem;
+  margin-top: 5rem;
   text-transform: capitalize;
   letter-spacing: var(--mainSpacing);
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  /* border: 3px solid green; */
+  padding: 10px;
 }
 .products-center {
   width: 90vw;
